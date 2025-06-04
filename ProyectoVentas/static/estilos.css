@@ -1,0 +1,88 @@
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #b685cc; /* morado pastel */
+    background-color: #f5f3fa; /* celeste muy claro */
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #d1b3e0; /* morado suave */
+    color: #4b3b57; /* morado oscuro para texto */
+}
+
+th {
+    background-color: #b685cc; /* morado pastel */
+    color: #f0f4f8; /* blanco pastel */
+    text-align: center;
+}
+
+.buscar {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px 10px 0px;
+}
+
+.contenidoBuscar {
+    width: 70%;
+    text-align: center;
+    margin: auto;
+}
+
+.insertarDatos {
+    font-size: 40px;
+    font-weight: bold;
+    width: 89%;
+    text-align: right;
+    margin: 10px 0px 10px 0px;
+}
+
+.insertarDatos a {
+    text-decoration: none;
+    color: #7e5fcc; /* morado pastel */
+    transition: color 0.3s ease;
+}
+
+.insertarDatos a:hover {
+    color: #61badd; /* celeste pastel */
+}
+
+input[type=text] {
+    width: 100%;
+    border-radius: 3px;
+    padding: 5px;
+    border: 1px solid #a0a0c7; /* morado claro */
+    margin: 10px 0px 10px 0px;
+    box-sizing: border-box;
+    resize: vertical;
+    background-color: #e8f0fb; /* celeste pastel claro */
+    color: #4b3b57;
+}
+
+input[type=submit] {
+    width: 20%;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: #7e5fcc; /* morado pastel */
+    color: #61badd; /* celeste pastel */
+    margin: 10px 0px 10px 0px;
+    box-sizing: border-box;
+    resize: vertical;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type=submit]:hover {
+    background-color: #61badd; /* celeste pastel */
+    color: #7e5fcc; /* morado pastel */
+}
+
+label {
+    display: inline-block;
+    color: #4b3b57; /* morado oscuro */
+    font-weight: 600;
+}

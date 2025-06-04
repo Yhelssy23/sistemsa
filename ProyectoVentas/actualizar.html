@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar</title>
+    <title>Actualizar Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
 </head>
 <body>
-    <div class="formulario">
-        <form method="post" action="/actualizar_cliente">
-         <input type="hidden" name="txtid" value="{{dato[0]}}">
-            <label for="mombre">Nombre</label>
-            <input type="text" id="nombre" name="txtnit" value="{{dato[1]}}">
-            <label for="nit">Nit</label>
-            <input type="text" id="nit" name="txtnit" value="{{dato[2]}}">
-            <input type="submit" value="Actualizar">
+    <div class="container mt-5">
+        <h2>Actualizar Cliente</h2>
+        <form method="POST" action="/actualizar_cliente">
+            <!-- ID oculto -->
+            <input type="hidden" name="txtid" value="{{ dato[0] }}">
+            
+            <div class="mb-3">
+                <label for="txtnombre" class="form-label">Nombre</label>
+                <input type="text" id="txtnombre" name="txtnombre" value="{{ dato[1] }}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="txtnit" class="form-label">NIT</label>
+                <input type="text" id="txtnit" name="txtnit" value="{{ dato[2] }}" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a href="/" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </body>

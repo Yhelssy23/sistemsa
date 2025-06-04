@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRAR</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='stilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<body>
+<div class="container mt-3">
+    <form action="/buscar" method="get" class="d-flex">
+        <input class="form-control me-2" type="search" name="txtbuscar" placeholder="Buscar cliente..." aria-label="Buscar" required>
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+    </form>
+</div>
+
+    <p><a href="/logout">Cerrar Sesión</a></p>
+    <h2>{{ mensaje }}</h2>
+
+    <!-- Botón para abrir el modal -->
+    <div class="insertarDatos">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#modalRegistro" id="modal" title="Insertar Datos">+</a>
+    </div>
+
+    <!-- Modal para insertar nuevo cliente -->
+    
+
+    <!-- Tabla de clientes -->
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>NIT</th>
+                <th colspan="4">Acción</th>
+            </tr>
+        </thead>
+        <form action="/insertar" method="POST">
+    <label for="txtnombre">Nombre</label>
+    <input type="text" name="txtnombre" id="txtnombre" required>
+    <label for="txtnit">NIT</label>
+    <input type="text" name="txtnit" id="txtnit" required>
+    <input type="submit" value="Registrar" class="btn btn-primary mt-3">
+       </form>          
+        <tbody>
+        {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente[0] }}</td>
+                <td>{{ cliente[1] }}</td>
+                <td>{{ cliente[2] }}</td>
+                <td><a href="/actualizar/{{ cliente[0] }}" class="btn btn-sm btn-warning">Actualizar</a></td>
+                <td><a href="/eliminar/{{ cliente[0] }}" class="btn btn-sm btn-danger" onclick="return confirm('¿Desea eliminar este cliente?')">Eliminar</a></td>
+                <td><a href="/vercompras/{{ cliente[0] }}" class="btn btn-sm btn-info">Ver Compras</a></td>
+                <td>
+                    <form action="/comprar" method="POST" style="display:inline;">
+                        <input type="hidden" name="id" value="{{ cliente[0] }}">
+                        <input type="text" name="Producto" placeholder="Producto" required>
+                        <input type="number" name="Cantidad" placeholder="Cantidad" required>
+                        <input type="number" name="Costo" placeholder="Costo" step="0.01" required>
+                        <input type="submit" value="Comprar" class="btn btn-sm btn-success">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- JS scripts -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+</body>
+</html>
